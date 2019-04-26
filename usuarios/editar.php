@@ -42,7 +42,7 @@ endif;
 
 
       <button type="submit" name="btn-editar" class="btn"> Atualizar </button>
-      <a href="index.php" class="btn green"> Lista de clientes </a>
+      <a href="../usuarios.php" class="btn green"> Lista de clientes </a>
     </form>
     
   </div>
