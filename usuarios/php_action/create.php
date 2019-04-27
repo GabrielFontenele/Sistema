@@ -12,7 +12,9 @@ function clear($input) {
 	return $var;
 }
 if(isset($_POST['btn-cadastrar'])):
-	$nome = clear($_POST['nome']);
+	$_SESSION['mensagem'] = $_POST;
+	header('Location: ../vendas.php');
+	/*$nome = clear($_POST['nome']);
 	$matricula = clear($_POST['matricula']);
 	$senha = md5(clear($_POST['senha']));
 	$created = clear($_POST['created']);
@@ -27,4 +29,6 @@ if(isset($_POST['btn-cadastrar'])):
 		$_SESSION['mensagem'] = mysqli_error($connect);
 		header('Location: ../../usuarios.php');
 	endif;
+
+	*/
 endif;
