@@ -1,6 +1,10 @@
 <?php
 // Header
-include_once 'includes/header.php';
+include_once '../ind/header.php';
+session_start();
+if(!isset($_SESSION['logado'])):
+  header('Location: index.php');
+endif;
 ?>
 
 <div class="row">
@@ -40,7 +44,7 @@ include_once 'includes/header.php';
         <label for="status">status</label>
       </div>
       <button type="submit" name="btn-cadastrar" class="btn"> Cadastrar </button>
-      <a href="../produto.php" class="btn green"> Lista de Produtos </a>
+      <a href="../produtos.php" class="btn green"> Lista de Produtos </a>
     </form>
     
   </div>
@@ -48,5 +52,5 @@ include_once 'includes/header.php';
 
 <?php
 // Footer
-include_once 'includes/footer.php';
+include_once '../ind/footer.php';
 ?>

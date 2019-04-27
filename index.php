@@ -1,8 +1,8 @@
 <?php
 //header
-include_once 'usuarios/includes/header.php';
+include_once 'ind/header.php';
 //message
-include_once 'usuarios/includes/message.php';
+include_once 'ind/message.php';
 
 ?>
 
@@ -28,5 +28,5 @@ include_once 'usuarios/includes/message.php';
 
 <?php
 // Footer
-include_once 'usuarios/includes/footer.php';
+include_once 'ind/footer.php';
 ?>

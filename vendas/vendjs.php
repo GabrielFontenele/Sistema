@@ -11,5 +11,4 @@ if(isset($_SESSION['vend'])): ?>
   </script>
 <?php
 endif;
-session_unset();
 ?>

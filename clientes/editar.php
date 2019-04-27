@@ -2,7 +2,12 @@
 // Conexao
 include_once '../db_connect.php';
 // Header
-include_once 'includes/header.php';
+include_once '../ind/header.php';
+
+session_start();
+if(!isset($_SESSION['logado'])):
+  header('Location: index.php');
+endif;
 // Select
 if(isset($_GET['id'])):
   $id = mysqli_escape_string($connect, $_GET['id']);
@@ -71,5 +76,5 @@ endif;
 
 <?php
 // Footer
-include_once 'includes/footer.php';
+include_once '../ind/footer.php';
 ?>

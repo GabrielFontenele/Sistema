@@ -27,7 +27,7 @@ if(isset($_POST['btn-cadastrar'])):
 	$sql = "INSERT INTO vendas (produtos_id, clientes_id, quantidade, forma_pagamento, data, valor_total, usuarios_id, created, updated, status) VALUES ('$produtos_id', '$clientes_id', '$quantidade', '$forma_pagamento', '$data', '$valor_total', '$usuarios_id', '$created', '$updated', '$status')";
 
 	if(mysqli_query($connect, $sql)):
-		$_SESSION['mensagem'] = "Cadastrado com sucesso";
+		$_SESSION['mensagem'] = $valor_total;
 	header('Location: ../vendas.php');
 	else:
 		$_SESSION['mensagem'] = mysqli_error($connect);

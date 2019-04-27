@@ -2,9 +2,13 @@
 //conexao
 include_once 'db_connect.php';
 //header
-include_once 'produtos/includes/header.php';
+include_once 'ind/header.php';
 //message
-include_once 'produtos/includes/message.php';
+include_once 'ind/message.php';
+if(!isset($_SESSION['logado'])):
+	header('Location: index.php');
+endif;
+
 ?>
 <div class= "row">
 	<div class="col s12 m6 push-m3">
@@ -17,11 +21,13 @@ include_once 'produtos/includes/message.php';
 			<div class = "col s8">
 				<label for="produtos_id">Produto</label>	
 				<select name="produtos_id" id="produtos_id">
+					<option value="" disabled selected>Escolha um Produto</option>
 					<?php
 					$sql ="SELECT * FROM produtos";
-					$resultado= mysqli_query($connect, $sql);
-					if(mysqli_num_rows($resultado) > 0):
-						while($dados = mysqli_fetch_array($resultado)):
+					$resultadoP= mysqli_query($connect, $sql);
+					if(mysqli_num_rows($resultadoP) > 0):
+						while($dados = mysqli_fetch_array($resultadoP)):
+							$prodinfo[$dados['id']] = $dados;
 							?>
 							<option value=<?php echo $dados['id']; ?>><?php echo $dados['descricao']; ?></option>
 							<?php 
@@ -30,12 +36,13 @@ include_once 'produtos/includes/message.php';
 				</select>
 			</div>
 			<div class="input-field col s4">
-				<input type="number" name="quantidade" min="1" max="6">
+				<input type="number" name="quantidade" min="1" max="99" value="1">
 				<label for="quantidade">quantidade</label>
 			</div>
 			<div class = "col s12">
 				<label for="clientes_id">Cliente</label>
 				<select name="clientes_id">
+					<option value="" disabled selected>Escolha um Cliente</option>
 					<?php
 					$sql ="SELECT * FROM clientes";
 					$resultado= mysqli_query($connect, $sql);
@@ -50,7 +57,8 @@ include_once 'produtos/includes/message.php';
 			</div>
 			<div class = "col s12">
 				<label for="forma_pagamento">forma_pagamento</label>
-				<select name="forma_pagamento">
+				<select name="forma_pagamento" id="forma_pagamento">
+					<option value="" disabled selected>Forma de pagamento</option>
 					<option value=DINHEIRO>DINHEIRO</option>
 					<option value=CARTAO>CARTAO</option>
 					<option value=CHEQUE>CHEQUE</option>
@@ -62,13 +70,14 @@ include_once 'produtos/includes/message.php';
 				<input type="text" name="data" id="data">
 			</div>
 			<div class="input-field col s12">
-				<label for="valor_total">valor_total</label>
-				<input type="text" name="valor_total" id="valor_total">
+				<span class="blue-text text-darken-2">valor total:</span>
+				<span  id="valor_totall"></span>
+				<input type="hidden" id="valor_total" name="valor_total"><!– TODO back end –> 
 			</div>
 			<div class="input-field col s12">
 				<label for="usuarios_id">usuarios_id</label>
 				<input type="text" name="usuarios_id" id="usuarios_id">
-			</div>
+			</div>	
 			<div class="input-field col s12">
 				<label for="created">created</label>
 				<input type="text" name="created" id="created">
@@ -82,10 +91,10 @@ include_once 'produtos/includes/message.php';
 				<input type="text" name="status" id="status">
 			</div>
 			<div class = "row">
-			<button type="submit" name="btn-cadastrar" class="btn"> Cadastrar </button>
-    		<a href="home.php" class="btn green"> Home </a>
+				<button type="submit" name="btn-cadastrar" class="btn"> Cadastrar </button>
+				<a href="home.php" class="btn green"> Home </a>
 			</div>	
-
+			<div id="dropdown-result" style="display: none;"></div>
 		</form>
 	</div>
 </div>
@@ -95,11 +104,44 @@ include_once 'produtos/includes/message.php';
 </body>
 </html>
 <?php
-include_once 'produtos/includes/footer.php';
+include_once 'ind/footer.php';
 ?>
-<?php
-if(isset($_POST['submit'])){
-	$selected_val = $_POST['forma_pagamento'];  // Storing Selected Value In Variable
-	echo "You have selected :" .$selected_val;  // Displaying Selected Value
+
+<script>
+	var quantidade = 1;
+	var forma_pagamento;
+	var produtos_id;
+	var valor_total;
+	var prodinfo = <?php echo json_encode($prodinfo) ?>;
+
+	document.getElementsByName('quantidade')[0].addEventListener('change',function(){
+		quantidade = this.value;
+		valor_totalUp();
+	},false);
+	document.getElementById('forma_pagamento').addEventListener('change', function(){
+		forma_pagamento = this.value;
+		valor_totalUp();
+	}, false);
+	document.getElementsByName('produtos_id')[0].addEventListener('change',update_text,false);
+	function update_text(evt){
+		var first_element = evt.target;
+		var selection = first_element.options[first_element.selectedIndex].value;
+    //do math:
+    produtos_id = +selection; //this cast selection as number and not as String
+    valor_totalUp();
+};
+
+function valor_totalUp(){
+	var retn;
+	if(typeof quantidade !== "undefined" && typeof produtos_id !== "undefined" && typeof forma_pagamento !== "undefined" )
+	{
+		if(forma_pagamento ==="DINHEIRO"){
+			retn =parseFloat(quantidade)*parseFloat(prodinfo[produtos_id][3]);
+		}else{
+			retn =parseFloat(quantidade)*parseFloat(prodinfo[produtos_id][4	]);
+		}
+		document.getElementById("valor_total").value = retn;
+		document.getElementById("valor_totall").innerHTML = retn;
+	} 
 }
-?>
+</script>
