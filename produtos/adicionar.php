@@ -1,7 +1,7 @@
 <?php
 // Header
 include_once '../ind/header.php';
-session_start();
+
 if(!isset($_SESSION['logado'])):
   header('Location: index.php');
 endif;

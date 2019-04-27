@@ -12,20 +12,31 @@ function clear($input) {
 	return $var;
 }
 if(isset($_POST['btn-cadastrar'])):
-	$nome = clear($_POST['nome']);
-	$matricula = clear($_POST['matricula']);
-	$senha = md5(clear($_POST['senha']));
-	$date   = new DateTime(); 
-	$created = $date->format('Y-m-d-H-i-s');
-	$status = "1";
-
-	$sql = "INSERT INTO usuarios (nome, matricula, senha, created,status) VALUES ('$nome', '$matricula', '$senha', '$created','$status')";
-
-	if(mysqli_query($connect, $sql)):
-		$_SESSION['mensagem'] = "Cadastrado com sucesso";
-		header('Location: ../../usuarios.php');
+	$_POST['btn-cadastrar'] = " ";
+	foreach ($_POST as $key => $value) {
+		if(empty($value)):
+			$erros .= "O campo ".$key." esta vazio. ";
+		endif;
+	}
+	if(!empty($erros)):
+		$_SESSION['mensagem'] .= clear($erros);
+		header('Location: ../adicionar.php');
 	else:
-		$_SESSION['mensagem'] = mysqli_error($connect);
-		header('Location: ../../usuarios.php');
+		$nome = clear($_POST['nome']);
+		$matricula = clear($_POST['matricula']);
+		$senha = md5(clear($_POST['senha']));
+		$date   = new DateTime(); 
+		$created = $date->format('Y-m-d-H-i-s');
+		$status = "1";
+
+		$sql = "INSERT INTO usuarios (nome, matricula, senha, created,status) VALUES ('$nome', '$matricula', '$senha', '$created','$status')";
+
+		if(mysqli_query($connect, $sql)):
+			$_SESSION['mensagem'] = "Cadastrado com sucesso";
+			header('Location: ../../usuarios.php');
+		else:
+			$_SESSION['mensagem'] = mysqli_error($connect);
+			header('Location: ../../usuarios.php');
+		endif;
 	endif;
 endif;
