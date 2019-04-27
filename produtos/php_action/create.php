@@ -17,9 +17,10 @@ if(isset($_POST['btn-cadastrar'])):
     $preco_vista = clear($_POST['preco_vista']);
     $preco_prazo = clear($_POST['preco_prazo']);
     $codigo_barras = clear($_POST['codigo_barras']);
-    $usuarios_id = clear($_POST['usuarios_id']);
-    $created = clear($_POST['created']);
-    $status = clear($_POST['status']);
+    $usuarios_id = $_SESSION['loginId'];
+    $date   = new DateTime(); 
+	$created = $date->format('Y-m-d-H-i-s');
+    $status = "1";
 
 	$sql = "INSERT INTO produtos (descricao, detalhamento, preco_vista, preco_prazo, codigo_barras, usuarios_id, created, status) VALUES ( '$descricao', '$detalhamento', '$preco_vista', '$preco_prazo', '$codigo_barras', '$usuarios_id', '$created', '$status')";
 

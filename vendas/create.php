@@ -19,10 +19,11 @@ if(isset($_POST['btn-cadastrar'])):
 	$forma_pagamento = clear($_POST['forma_pagamento']);
 	$data = clear($_POST['data']);
 	$valor_total = clear($_POST['valor_total']);
-	$usuarios_id = clear($_POST['usuarios_id']);
-	$created = clear($_POST['created']);
-	$updated = clear($_POST['updated']);
-	$status = clear($_POST['status']);
+	$usuarios_id = $_SESSION['loginId'];
+	$date   = new DateTime(); 
+	$created = $date->format('Y-m-d-H-i-s');
+	$updated = $date->format('Y-m-d-H-i-s');
+	$status = "1";
 
 	$sql = "INSERT INTO vendas (produtos_id, clientes_id, quantidade, forma_pagamento, data, valor_total, usuarios_id, created, updated, status) VALUES ('$produtos_id', '$clientes_id', '$quantidade', '$forma_pagamento', '$data', '$valor_total', '$usuarios_id', '$created', '$updated', '$status')";
 

@@ -31,25 +31,15 @@ endif;
         <input type="text" name="codigo_barras" id="codigo_barras">
         <label for="codigo_barras">codigo_barras</label>
       </div>
-      <div class="input-field col s12">
-        <input type="text" name="usuarios_id" id="usuarios_id">
-        <label for="usuarios_id">usuarios_id</label>
-      </div>
-      <div class="input-field col s12">
-        <input type="text" name="created" id="created">
-        <label for="created">created</label>
-      </div>
-      <div class="input-field col s12">
-        <input type="text" name="status" id="status">
-        <label for="status">status</label>
-      </div>
       <button type="submit" name="btn-cadastrar" class="btn"> Cadastrar </button>
       <a href="../produtos.php" class="btn green"> Lista de Produtos </a>
     </form>
     
   </div>
 </div>
-
+<div class="col s6 offset-s8" align="right">
+    <a href="../logout.php" align="right" class="btn - red" >Sair</a>
+</div>
 <?php
 // Footer
 include_once '../ind/footer.php';

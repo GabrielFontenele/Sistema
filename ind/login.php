@@ -27,9 +27,10 @@ if(isset($_POST['btn-login'])):
 		$resultado = mysqli_query($connect, $sql);
 			if(mysqli_num_rows($resultado) == 1):
 				$dados = mysqli_fetch_array($resultado);
-				mysqli_close($connect);
 				$_SESSION['logado'] = true;
 				$_SESSION['matricula'] = $matricula;
+				$_SESSION['loginId'] = $dados['id'];
+				mysqli_close($connect);
 			else:
 				$erros .=  "<li> Usuário e senha não conferem </li>";
 			endif;

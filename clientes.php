@@ -33,7 +33,6 @@ endif;
         $sql ="SELECT * FROM clientes";
         $resultado= mysqli_query($connect, $sql);
         if(mysqli_num_rows($resultado) > 0):
-
         while($dados = mysqli_fetch_array($resultado)):
         ?>
         <tr>
@@ -95,7 +94,9 @@ endif;
     <a href="home.php" class="btn green"> Home </a>
   </div>
 </div>
-<a href="logout.php">Sair</a>
+<div class="col s6 offset-s8" align="right">
+    <a href="logout.php" align="right" class="btn - red" >Sair</a>
+</div>
 </body>
 </html>
 <?php

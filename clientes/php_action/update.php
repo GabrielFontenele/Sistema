@@ -21,8 +21,7 @@ if(isset($_POST['btn-editar'])):
     $estado = clear($_POST['estado']);
     $cidade = clear($_POST['cidade']);
     $renda = clear($_POST['renda']);
-    $usuarios_id = clear($_POST['usuarios_id']);
-    $created = clear($_POST['created']);
+    $usuarios_id = $_SESSION['loginId'];
     $status = clear($_POST['status']);
 	$id = clear($_POST['id']);
 	$sql = "UPDATE clientes SET nome = '$nome', cpf = '$cpf', rg = '$rg', endereco = '$endereco', numero = '$numero', estado = '$estado', cidade = '$cidade', renda = '$renda', usuarios_id = '$usuarios_id', created = '$created', status = '$status' WHERE id = '$id'";

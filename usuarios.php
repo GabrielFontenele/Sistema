@@ -74,7 +74,9 @@ endif;
     <a href="home.php" class="btn green"> Home </a>
   </div>
 </div>
-<a href="logout.php">Sair</a>
+<div class="col s6 offset-s8" align="right">
+    <a href="logout.php" align="right" class="btn - red" >Sair</a>
+</div>
 </body>
 </html>
 <?php

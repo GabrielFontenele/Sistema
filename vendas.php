@@ -74,22 +74,6 @@ endif;
 				<span  id="valor_totall"></span>
 				<input type="hidden" id="valor_total" name="valor_total"><!– TODO back end –> 
 			</div>
-			<div class="input-field col s12">
-				<label for="usuarios_id">usuarios_id</label>
-				<input type="text" name="usuarios_id" id="usuarios_id">
-			</div>	
-			<div class="input-field col s12">
-				<label for="created">created</label>
-				<input type="text" name="created" id="created">
-			</div>
-			<div class="input-field col s12">
-				<label for="updated">updated</label>
-				<input type="text" name="updated" id="updated">
-			</div>
-			<div class="input-field col s12">
-				<label for="status">status</label>
-				<input type="text" name="status" id="status">
-			</div>
 			<div class = "row">
 				<button type="submit" name="btn-cadastrar" class="btn"> Cadastrar </button>
 				<a href="home.php" class="btn green"> Home </a>
@@ -98,8 +82,9 @@ endif;
 		</form>
 	</div>
 </div>
-<div>
-	<a href="logout.php">Sair</a>
+
+<div class="col s6 offset-s8" align="right">
+    <a href="logout.php" align="right" class="btn - red" >Sair</a>
 </div>
 </body>
 </html>

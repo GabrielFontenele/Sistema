@@ -18,8 +18,7 @@ if(isset($_POST['btn-editar'])):
     $preco_vista = clear($_POST['preco_vista']);
     $preco_prazo = clear($_POST['preco_prazo']);
     $codigo_barras = clear($_POST['codigo_barras']);
-    $usuarios_id = clear($_POST['usuarios_id']);
-    $created = clear($_POST['created']);
+    $usuarios_id = $_SESSION['loginId'];
     $status = clear($_POST['status']);
 	$id = clear($_POST['id']);
 

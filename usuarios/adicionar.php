@@ -19,28 +19,19 @@ endif;
         <input type="text" name="matricula" id="matricula">
         <label for="matricula">matricula</label>
       </div>
-
       <div class="input-field col s12">
         <input type="password" name="senha" id="senha">
         <label for="senha">senha</label>
       </div>
-
-      <div class="input-field col s12">
-        <input type="text" name="created" id="created">
-        <label for="created">created</label>
-      </div>
-      <div class="input-field col s12">
-        <input type="text" name="status" id="status">
-        <label for="status">status</label>
-      </div>
-
       <button type="submit" name="btn-cadastrar" class="btn"> Cadastrar </button>
       <a href="../usuarios.php" class="btn green"> Lista de usuarios </a>
     </form>
     
   </div>
 </div>
-
+<div class="col s6 offset-s8" align="right">
+    <a href="../logout.php" align="right" class="btn - red" >Sair</a>
+</div>
 <?php
 // Footer
 include_once '../ind/footer.php';

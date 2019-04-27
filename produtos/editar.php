@@ -41,15 +41,7 @@ endif;
         <label for="codigo_barras">codigo_barras</label>
       </div>
       <div class="input-field col s12">
-        <input type="text" name="usuarios_id" id="usuarios_id"value="<?php echo $dados['usuarios_id'];?>">
-        <label for="usuarios_id">usuarios_id</label>
-      </div>
-      <div class="input-field col s12">
-        <input type="text" name="created" id="created"value="<?php echo $dados['created'];?>">
-        <label for="created">created</label>
-      </div>
-      <div class="input-field col s12">
-        <input type="text" name="status" id="status"value="<?php echo $dados['status'];?>">
+        <input type="text" name="status" id="status" value="<?php echo $dados['status'];?>">
         <label for="status">status</label>
       </div>
 
@@ -59,7 +51,9 @@ endif;
     
   </div>
 </div>
-
+<div class="col s6 offset-s8" align="right">
+    <a href="../logout.php" align="right" class="btn - red" >Sair</a>
+</div>
 <?php
 // Footer
 include_once '../ind/footer.php';

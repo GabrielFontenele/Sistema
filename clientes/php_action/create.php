@@ -20,9 +20,11 @@ if(isset($_POST['btn-cadastrar'])):
     $estado = clear($_POST['estado']);
     $cidade = clear($_POST['cidade']);
     $renda = clear($_POST['renda']);
-    $usuarios_id = clear($_POST['usuarios_id']);
-    $created = clear($_POST['created']);
-    $status = clear($_POST['status']);
+    $usuarios_id = $_SESSION['loginId'];
+	$date   = new DateTime(); 
+	$result = $date->format('Y-m-d-H-i-s');
+    $created = $result;
+    $status = "1";
 
 	$sql = "INSERT INTO clientes ( nome , cpf , rg , endereco , numero , estado , cidade , renda , usuarios_id , created , status) VALUES ('$nome' ,'$cpf' ,'$rg' ,'$endereco' ,'$numero' ,'$estado' ,'$cidade' ,'$renda' ,'$usuarios_id' ,'$created' ,'$status')";
 

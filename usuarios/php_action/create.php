@@ -15,8 +15,9 @@ if(isset($_POST['btn-cadastrar'])):
 	$nome = clear($_POST['nome']);
 	$matricula = clear($_POST['matricula']);
 	$senha = md5(clear($_POST['senha']));
-	$created = clear($_POST['created']);
-	$status = clear($_POST['status']);
+	$date   = new DateTime(); 
+	$created = $date->format('Y-m-d-H-i-s');
+	$status = "1";
 
 	$sql = "INSERT INTO usuarios (nome, matricula, senha, created,status) VALUES ('$nome', '$matricula', '$senha', '$created','$status')";
 
