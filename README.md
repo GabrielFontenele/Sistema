@@ -1,4 +1,4 @@
-wampserver 3.1.7
+wampserver 3.1.7 php 7.4.14
 
 CREATE DATABASE sistema
 
