@@ -9,10 +9,10 @@ if(!isset($_SESSION['logado'])):
   header('Location: index.php');
 endif;
 ?>
-<div class= "row">
-  <div class="col s12 m6 push-m3">
-    <h3 class="light">Usuarios</h3>
-    <table class="striped">
+<div class= "container-fluid">
+  <div class="container-fluid">
+    <h1 class="display-4">Usuarios</h1>
+    <table class="table table-dark table-hover">
       <thead>
         <th>id:</th>
         <th>nome:</th>
@@ -37,20 +37,18 @@ endif;
           <td><?php echo $dados['created']; ?></td>
           <td><?php echo $dados['status']; ?></td>  
 
-          <td><a href="usuarios/editar.php?id=<?php echo $dados['id']; ?>" class="btn-floating orange"><i class="material-icons">edit</i></a></td>
-          <td><a href="#modal<?php echo $dados['id']; ?>" class="btn-floating red modal-trigger"><i class="material-icons">delete</i></a></td>
+          <td><a href="usuarios/editar.php?id=<?php echo $dados['id']; ?>" class="btn btn-warning"><i class="material-icons">edit</i></a></td>
+          <td><a href="#modal<?php echo $dados['id']; ?>" class="btn btn-danger modal-trigger"><i class="material-icons ">delete</i></a></td>
 
           <!-- Modal Structure -->
           <div id="modal<?php echo $dados['id']; ?>" class="modal">
-            <div class="modal-content">
+            <div class="alert alert-danger" role="alert">
               <h4>Opa!</h4>
               <p>Tem certeza que deseja excluir esse usuario?</p>
-            </div>
-            <div class="modal-footer">
               <form action="usuarios/php_action/delete.php" method="POST">
                 <input type="hidden" name="id" value="<?php echo $dados['id'];?>">
-                <button type="submit" name="btn-deletar" class="btn red">Sim, quero deletar</button>
-                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>
+                <button type="submit" name="btn-deletar" type="button" class="btn btn-danger">Sim, quero deletar</button>
+                <a href="#!" class="modal-action modal-close waves-effect btn btn-secondary">Cancelar</a>
               </form>
             </div>
           </div>
@@ -63,6 +61,8 @@ endif;
           <td>-</td>
           <td>-</td>
           <td>-</td>
+          <td>-</td>
+          <td>-</td>
         </tr>
       <?php  
       endif;
@@ -70,12 +70,12 @@ endif;
       </tbody>
     </table>
     <br>
-    <a href="usuarios/adicionar.php" class="btn">Adicionar usuario</a>
-    <a href="home.php" class="btn green"> Home </a>
+    <a href="usuarios/adicionar.php" class="btn btn-primary">Adicionar usuario</a>
+    <a href="home.php" class="btn btn-success"> Home </a>
   </div>
 </div>
 <div class="col s6 offset-s8" align="right">
-    <a href="logout.php" align="right" class="btn - red" >Sair</a>
+    <a href="logout.php" align="right" class="btn btn-danger"> Sair </a>
 </div>
 </body>
 </html>

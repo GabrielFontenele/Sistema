@@ -12,6 +12,15 @@ function clear($input) {
 	return $var;
 }
 if(isset($_POST['btn-cadastrar'])):
+	$_POST['btn-cadastrar'] = " ";
+	foreach ($_POST as $key => $value) {
+		if(empty($value)):
+			$erros .= "O campo ".$key." esta vazio. ";
+		endif;
+	}if(!empty($erros)):
+		$_SESSION['mensagem'] .= clear($erros);
+		header('Location: ../vendas.php');
+	else:
 
 	$produtos_id = clear($_POST['produtos_id']);
 	$clientes_id = clear($_POST['clientes_id']);
@@ -31,7 +40,8 @@ if(isset($_POST['btn-cadastrar'])):
 		$_SESSION['mensagem'] = "Venda realizada com sucesso";
 	header('Location: ../vendas.php');
 	else:
-		$_SESSION['mensagem'] = "erro".clear(mysqli_error($connect));
+		$_SESSION['mensagem'] = $erros.clear(mysqli_error($connect));
 	header('Location: ../vendas.php');
 	endif;
+endif;
 endif;

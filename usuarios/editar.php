@@ -17,35 +17,36 @@ if(isset($_GET['id'])):
   $dados = mysqli_fetch_array($resultado);
 endif;
 ?>
-<div class="row">
-  <div class="col s12 m6 push-m3">
-    <h3 class="light"> Editar Cliente </h3>
-    <form action="php_action/update.php" method="POST">
-      <input type="hidden" name="id" value="<?php echo $dados['id'];?>">
-      <div class="input-field col s12">
-        <input type="text" name="nome" id="nome" value="<?php echo $dados['nome'];?>">
-        <label for="nome">Nome</label>
-      </div>
-      <div class="input-field col s12">
-        <input type="text" name="matricula" id="matricula" value="<?php echo $dados['matricula'];?>">
-        <label for="matricula">matricula</label>
-      </div>
-      <div class="input-field col s12">
-        <input type="password" name="senha" id="senha" value="<?php echo $dados['senha'];?>">
-        <label for="senha">senha</label>
-      </div>
-      <div class="input-field col s12">
-        <input type="text" name="status" id="status" value="<?php echo $dados['status'];?>">
-        <label for="status">status</label>
-      </div>
-      <button type="submit" name="btn-editar" class="btn"> Atualizar </button>
-      <a href="../usuarios.php" class="btn green"> Lista de clientes </a>
-    </form>
-    
+<div class="container">
+  <h1 class="display-4"> Editar Usuario </h1>
+  <div class="row justify-content-md-center">
+    <dir class="col col-lg-6">
+      <form action="php_action/update.php" method="POST">
+        <input type="hidden" name="id" value="<?php echo $dados['id'];?>">
+        <div class="form-group">
+          <label for="nome">Nome</label>
+          <input type="text" name="nome"  class="form-control" id="nome" value="<?php echo $dados['nome'];?>">
+        </div>
+        <div class="form-group">
+          <label for="matricula">matricula</label>
+          <input type="text" name="matricula" class="form-control" id="matricula" value="<?php echo $dados['matricula'];?>">
+        </div>
+        <div class="form-group">
+          <label for="senha">senha</label>
+          <input type="password" name="senha" class="form-control" id="senha" value="<?php echo $dados['senha'];?>">
+        </div>
+        <div class="form-group">
+          <label for="status">status</label>
+          <input type="text" name="status" class="form-control" id="status" value="<?php echo $dados['status'];?>">
+        </div>
+        <button type="submit" name="btn-editar" class="btn btn-primary"> Atualizar </button>
+        <a href="../usuarios.php" class="btn btn-success"> Lista de clientes </a>
+      </form>
+    </dir>
   </div>
 </div>
 <div class="col s6 offset-s8" align="right">
-    <a href="../logout.php" align="right" class="btn - red" >Sair</a>
+  <a href="../logout.php" align="right" class="btn btn-danger" > Sair </a>
 </div>
 <?php
 // Footer
