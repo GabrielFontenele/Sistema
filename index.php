@@ -8,7 +8,7 @@ include_once 'ind/message.php';
 
 <div class="row">
   <div class="col s12 m6 push-m3">
-    <h3 class="light"> Novo Cliente </h3>
+    <h3 class="light"> Login </h3>
     <form action="ind/login.php" method="POST">
       <div class="input-field col s12">
         <input type="text" name="matricula" id="matricula">

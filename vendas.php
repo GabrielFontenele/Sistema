@@ -14,10 +14,6 @@ endif;
 	<div class="col s12 m6 push-m3">
 		<h3 class="light"> venda</h3>
 		<form action="vendas/create.php" method="POST">
-			<div class="input-field col s12">
-				<label for="matricula">matricula</label>
-				<input type="text" name="matricula" id="matricula">
-			</div>
 			<div class = "col s8">
 				<label for="produtos_id">Produto</label>	
 				<select name="produtos_id" id="produtos_id">

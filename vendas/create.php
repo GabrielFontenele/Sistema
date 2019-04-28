@@ -28,10 +28,10 @@ if(isset($_POST['btn-cadastrar'])):
 	$sql = "INSERT INTO vendas (produtos_id, clientes_id, quantidade, forma_pagamento, data, valor_total, usuarios_id, created, updated, status) VALUES ('$produtos_id', '$clientes_id', '$quantidade', '$forma_pagamento', '$data', '$valor_total', '$usuarios_id', '$created', '$updated', '$status')";
 
 	if(mysqli_query($connect, $sql)):
-		$_SESSION['mensagem'] = $valor_total;
+		$_SESSION['mensagem'] = "Venda realizada com sucesso";
 	header('Location: ../vendas.php');
 	else:
-		$_SESSION['mensagem'] = mysqli_error($connect);
+		$_SESSION['mensagem'] = "erro".clear(mysqli_error($connect));
 	header('Location: ../vendas.php');
 	endif;
 endif;

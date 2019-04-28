@@ -3,7 +3,9 @@
 include_once '../db_connect.php';
 // Header
 include_once '../ind/header.php';
-session_start();
+
+include_once '../ind/message.php';
+
 if(!isset($_SESSION['logado'])):
   header('Location: index.php');
 endif;

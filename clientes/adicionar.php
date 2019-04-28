@@ -1,15 +1,18 @@
 <?php
 // Header
 include_once '../ind/header.php';
-session_start();
+
+include_once '../ind/message.php';
+
 if(!isset($_SESSION['logado'])):
-  header('Location: index.php');
+  header('Location: ../index.php');
 endif;
+
 ?>
 
 <div class="row">
   <div class="col s12 m6 push-m3">
-    <h3 class="light"> Novo Clientes </h3>
+    <h3 class="light"> Novo Cliente </h3>
     <form action="php_action/create.php" method="POST">
       <div class="input-field col s12">
         <input type="text" name="nome" id="nome">

@@ -32,8 +32,7 @@ if(isset($_POST['btn-cadastrar'])):
 		$renda = clear($_POST['renda']);
 		$usuarios_id = $_SESSION['loginId'];
 		$date   = new DateTime(); 
-		$result = $date->format('Y-m-d-H-i-s');
-		$created = $result;
+		$created = $date->format('Y-m-d-H-i-s');
 		$status = "1";
 
 		$sql = "INSERT INTO clientes ( nome , cpf , rg , endereco , numero , estado , cidade , renda , usuarios_id , created , status) VALUES ('$nome' ,'$cpf' ,'$rg' ,'$endereco' ,'$numero' ,'$estado' ,'$cidade' ,'$renda' ,'$usuarios_id' ,'$created' ,'$status')";

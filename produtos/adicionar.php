@@ -2,8 +2,10 @@
 // Header
 include_once '../ind/header.php';
 
+include_once '../ind/message.php';
+
 if(!isset($_SESSION['logado'])):
-  header('Location: index.php');
+  header('Location: ../index.php');
 endif;
 ?>
 

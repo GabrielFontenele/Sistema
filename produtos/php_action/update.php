@@ -29,6 +29,8 @@ if(isset($_POST['btn-editar'])):
 		$preco_prazo = clear($_POST['preco_prazo']);
 		$codigo_barras = clear($_POST['codigo_barras']);
 		$usuarios_id = $_SESSION['loginId'];
+		$date   = new DateTime(); 
+		$created = $date->format('Y-m-d-H-i-s');
 		$status = clear($_POST['status']);
 		$id = clear($_POST['id']);
 
