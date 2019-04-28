@@ -69,11 +69,11 @@ endif;
 				</div>
 				<div class="row">
 					<div class="card">
-					    <div class="card-body">valor total:</div>
-					  </div>
+						<div class="card-body">valor total:</div>
+					</div>
 					<div class="card">
-					    <div  class="card-body" id="valor_totall"></div>
-					  </div>
+						<div  class="card-body" id="valor_totall"></div>
+					</div>
 					
 					<input type="hidden" id="valor_total" name="valor_total"><!– TODO back end –> 
 				</div>
@@ -90,11 +90,9 @@ endif;
 <div class="col s6 offset-s8" align="right">
 	<a href="logout.php" align="right" class="btn btn-danger"> Sair </a>
 </div>
+<script> M.AutoInit();</script>
 </body>
 </html>
-<?php
-include_once 'ind/footer.php';
-?>
 
 <script>
 	var quantidade = 1;
