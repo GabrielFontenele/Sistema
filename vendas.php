@@ -12,7 +12,7 @@ endif;
 <div class= "container">
 	<h1 class="display-4"> Venda </h1>
 	<div class="row justify-content-md-center">
-		<dir class="col col-lg-6">
+		<div class="col col-lg-6">
 			<form action="vendas/create.php" method="POST">
 				<div class="form-group row">
 					<div class = "form-group col-sm-8">
@@ -68,11 +68,16 @@ endif;
 					<input type="text" name="data" id="data" class="form-control">
 				</div>
 				<div class="row">
-					<div  class="list-group-item">valor total:</div>
-					<div  class="list-group-item" id="valor_totall"></div >
+					<div class="card">
+					    <div class="card-body">valor total:</div>
+					  </div>
+					<div class="card">
+					    <div  class="card-body" id="valor_totall"></div>
+					  </div>
+					
 					<input type="hidden" id="valor_total" name="valor_total"><!– TODO back end –> 
 				</div>
-				<div class = "row">
+				<div class ="form-group">
 					<button type="submit" name="btn-cadastrar" class="btn btn-primary">Cadastrar </button>
 					<a href="home.php" class="btn btn-success"> Home </a>
 				</div>	
@@ -80,7 +85,7 @@ endif;
 			</form>
 		</div>
 	</div>
-</dir>
+</div>
 
 <div class="col s6 offset-s8" align="right">
 	<a href="logout.php" align="right" class="btn btn-danger"> Sair </a>

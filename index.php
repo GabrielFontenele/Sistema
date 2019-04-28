@@ -6,23 +6,24 @@ include_once 'ind/message.php';
 
 ?>
 
-<div class="row">
-  <div class="col s12 m6 push-m3">
-    <h3 class="light"> Login </h3>
-    <form action="ind/login.php" method="POST">
-      <div class="input-field col s12">
-        <input type="text" name="matricula" id="matricula">
-        <label for="matricula">matricula</label>
-      </div>
+<div class= "container">
+  <h3 class="light"> Login </h3>
+  <div class="row justify-content-md-center">
+    <dir class="col col-lg-6">
+      <form action="ind/login.php" method="POST">
+        <div class="form-group">
 
-      <div class="input-field col s12">
-        <input type="password" name="password" id="password">
-        <label for="password">senha</label>
-      </div>
+          <label for="matricula">matricula</label>
+          <input type="text" name="matricula" id="matricula"class="form-control">
+        </div>
 
-      <button type="submit" name="btn-login" class="btn"> logar </button>
-    </form>
-    
+        <div class="form-group">
+          <label for="password">senha</label>
+          <input type="password" name="password" id="password"class="form-control">
+        </div>
+        <button type="submit" name="btn-login" class="btn btn-success"> logar </button>
+      </form>
+    </div>
   </div>
 </div>
 
